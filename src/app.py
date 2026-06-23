@@ -26,14 +26,22 @@ from course_analytics import (
     SKILL_COLUMNS,
 )
 
+import plotly.io as pio
+pio.templates["custom"] = pio.templates["plotly"]
+pio.templates["custom"].layout.font.size = 16          # etiquetas generales
+pio.templates["custom"].layout.title.font.size = 22     # títulos de cada gráfico
+pio.templates["custom"].layout.legend.font.size = 14    # leyenda
+pio.templates["custom"].layout.xaxis.tickfont.size = 13 # números/etiquetas eje X
+pio.templates["custom"].layout.yaxis.tickfont.size = 13 # números/etiquetas eje Y
+pio.templates.default = "custom"
 st.set_page_config(
-    page_title="Courses History Dashboard",
+    page_title="Knowledge history dashboard",
     page_icon="🎓",
     layout="wide",
 )
 
 # ── Header ────────────────────────────────────────────────────────────────
-st.title("🎓 Professional Courses History Dashboard")
+st.title("🎓 Professional Knowledge History Dashboard")
 st.markdown(
     "<p style='font-size:18px; color:gray;'>An interactive view of a "
     "career-long learning path: courses and certifications completed "
